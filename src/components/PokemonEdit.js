@@ -1,27 +1,37 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useParams, useHistory } from "react-router";
 import { updatePokemon, fetchPokemonDetails } from "../data";
-import * as consts from '../enums';
+import { fetchStatus } from '../enums';
 import PokemonForm from "./PokemonForm";
 
 const PokemonEdit = () => {
     const { id: pokemonId } = useParams();
-    const [pokemon, setPokemon] = useState(consts.fetchStatus.LOADING);
+    const [pokemon, setPokemon] = useState(fetchStatus.LOADING);
+    const history = useHistory();
 
     useEffect(() => {
         fetchPokemonDetails(pokemonId).then(pokemon => {
-            setPokemon(pokemon || consts.fetchStatus.NOTFOUND);
+            setPokemon(pokemon || fetchStatus.NOTFOUND);
         });
     }, []);
 
-    if (pokemon === consts.fetchStatus.LOADING) {
+    if (pokemon === fetchStatus.LOADING) {
         return null;
+    }
+
+    if (pokemon === fetchStatus.NOTFOUND) {
+        return <Redirect to="/404" />
+    }
+
+    const handleSubmit = async (pokemon) => {
+        await updatePokemon(pokemon);
+        history.push("/pokemons/" + pokemon.id);
     }
 
     return (
         <section>
             <h2>Edit pokemon</h2>
-            <PokemonForm pokemon={pokemon} onSubmit={(pokemon) => updatePokemon(pokemon)} />
+            <PokemonForm pokemon={pokemon} onSubmit={(pokemon) => handleSubmit(pokemon)} />
         </section>
     )
 }
