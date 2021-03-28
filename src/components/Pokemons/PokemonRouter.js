@@ -1,9 +1,9 @@
 import React from "react";
 import {Switch, Route } from "react-router-dom";
-import PokemonAdd from "./PokemonAdd/PokemonAdd";
-import PokemonDetails from './PokemonDetails/PokemonDetails';
-import PokemonEdit from "./PokemonEdit/PokemonEdit";
-import PokemonList from "./PokemonList/PokemonList";
+import PokemonAdd from "./PokemonAdd";
+import PokemonDetails from './PokemonDetails';
+import PokemonEdit from "./PokemonEdit";
+import PokemonList from "./PokemonList";
 
 const PokemonRouter = () => {
     return (

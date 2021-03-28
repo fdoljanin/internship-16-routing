@@ -1,5 +1,12 @@
 {
   "pokemons": [],
+  "digimons": [
+    {
+      "id": 1,
+      "name": "Digimonj",
+      "description": "rrr"
+    }
+  ],
   "posts": [
     {
       "id": 1,

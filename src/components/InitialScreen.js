@@ -1,9 +1,8 @@
-import pikachu from "./../../assets/pikachu.svg";
-import gatomon from "./../../assets/gatomon.png";
-import {MainScreen} from "./index.styled";
+import pikachu from "./../assets/pikachu.svg";
+import gatomon from "./../assets/gatomon.png";
+import {MainScreen} from "../index.styled";
 import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
-import PokemonRouter from "./../PokemonRouter";
-import NotFound from "../NotFound/NotFound";
+import NotFound from "./NotFound";
 
 const InitialScreen = () => {
     return (
@@ -18,9 +17,11 @@ const InitialScreen = () => {
                 <img src={pikachu} alt="Pikachu image" />
             </section>
             <section className="digimon">
+                <Link to="/digimons">
                 <button>
                     Digimons
                 </button>
+                </Link>
                 <img src={gatomon} alt="Gatomon image" />
             </section>
         </MainScreen>

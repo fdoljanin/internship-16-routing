@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import loadingBall from "../../assets/loading-ball.png";
-import {LoadScreen} from "./index.styles";
+import loadingBall from "../assets/loading-ball.png";
+import {LoadScreen} from "../index.styled";
 
 
 const Loading = () => {
     const [loadingText, setLoadingText] = useState("Loading");
-    const [numberOfDots, setNumberOfDots] = useState(3);
+    const [numberOfDots, setNumberOfDots] = useState(0);
     let timeout;
 
     const changeLoadingText = () => {
@@ -18,7 +18,7 @@ const Loading = () => {
    }, [numberOfDots]);
 
    useEffect(() =>{
-        return clearTimeout(timeout);
+        return () => clearTimeout(timeout);
    }, [])
 
     return (

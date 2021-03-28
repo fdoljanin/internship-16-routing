@@ -1,6 +1,6 @@
 import {useState} from "react";
-import '../../helpers';
-import {Form} from "./index.styled";
+import {Form} from "../../index.styled";
+import '../../consts/helpers';
 
 const PokemonForm = ({ onSubmit, pokemon }) => {
     const [pokemonState, setPokemonState] = useState({

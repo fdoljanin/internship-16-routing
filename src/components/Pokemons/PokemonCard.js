@@ -1,4 +1,4 @@
-import {Card} from "./index.styled";
+import {Card} from "../../index.styled";
 
 const PokemonCard = ({pokemon}) => {
     return (

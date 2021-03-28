@@ -1,4 +1,4 @@
-import {ConfirmPopup} from "../../index.styled";
+import {ConfirmPopup} from "../index.styled";
 
 const Confirm = ({text, accept, cancel}) => {
     return (

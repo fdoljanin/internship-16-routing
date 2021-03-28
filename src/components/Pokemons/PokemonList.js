@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import PokemonCard from '../PokemonCard/PokemonCard';
-import { fetchStatus } from '../../enums';
-import { fetchPokemons } from '../../data';
 import { Link } from "react-router-dom";
-import { List } from "./index.styled";
-import Loading from "../Loading";
+import PokemonCard from './PokemonCard';
+import Loading from "./../Loading";
+import { fetchPokemons } from '../../data';
+import { fetchStatus } from '../../consts/enums';
+import { List } from "../../index.styled";
 
 const PokemonList = () => {
     const [pokemonList, setPokemonList] = useState(fetchStatus.LOADING);
@@ -34,7 +34,7 @@ const PokemonList = () => {
                             </Link>)}
                     </section>
                 }
-                <Link to="pokemons/add">
+                <Link to="/pokemons/add">
                     <button>Add new</button>
                 </Link>
             </div>

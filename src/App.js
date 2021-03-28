@@ -1,7 +1,8 @@
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import NotFound from "./components/NotFound/NotFound";
+import NotFound from "./components/NotFound";
 import InitialScreen from "./components/InitialScreen";
-import PokemonRouter from "./components/PokemonRouter";
+import PokemonRouter from "./components/Pokemons/PokemonRouter";
+import DigimonRouter from "./components/Digimons/DigimonRouter";
 
 const App = () => {
     return (
@@ -15,6 +16,9 @@ const App = () => {
                 </Route>
                 <Route path="/pokemons">
                     <PokemonRouter />
+                </Route>
+                <Route path="/digimons">
+                    <DigimonRouter />
                 </Route>
                 <Redirect to="/" />
             </Switch>

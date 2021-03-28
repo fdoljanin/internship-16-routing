@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams, useHistory, Redirect } from "react-router";
+import Loading from "./../Loading";
+import PokemonForm from "./PokemonForm";
 import { updatePokemon, fetchPokemonDetails } from "../../data";
-import { fetchStatus } from '../../enums';
-import Loading from "../Loading";
-import PokemonForm from "./../PokemonForm/PokemonForm";
-import { EditWrapper } from "./index.styled";
+import { fetchStatus } from '../../consts/enums';
+import { FormWrapper } from "../../index.styled";
 
 const PokemonEdit = () => {
     const { id: pokemonId } = useParams();
@@ -33,10 +33,10 @@ const PokemonEdit = () => {
     }
 
     return (
-        <EditWrapper>
+        <FormWrapper>
             <h2>Edit pokemon</h2>
             <PokemonForm pokemon={pokemon} onSubmit={(pokemon) => handleSubmit(pokemon)} />
-        </EditWrapper>
+        </FormWrapper>
     )
 }
 

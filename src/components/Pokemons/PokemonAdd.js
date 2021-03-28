@@ -1,7 +1,7 @@
 import { useHistory } from "react-router";
+import PokemonForm from "./PokemonForm";
 import { createPokemon } from "../../data";
-import PokemonForm from "../PokemonForm/PokemonForm";
-import {AddWrapper} from "./index.styled";
+import {FormWrapper} from "../../index.styled";
 
 const PokemonAdd = () => {
     const history = useHistory();
@@ -13,10 +13,10 @@ const PokemonAdd = () => {
     }
 
     return (
-        <AddWrapper>
+        <FormWrapper>
             <h2>Add pokemon</h2>
             <PokemonForm onSubmit={(pokemon) => handleSubmit(pokemon)} />
-        </AddWrapper>
+        </FormWrapper>
     )
 }
 

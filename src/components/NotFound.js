@@ -1,5 +1,5 @@
-import pikachu404 from "../../assets/404-pikachu.png";
-import {NotFoundWrapper} from "./index.styled";
+import pikachu404 from "../assets/404-pikachu.png";
+import {NotFoundWrapper} from "../index.styled";
 import {Link} from "react-router-dom";
 
 const NotFound = () => {

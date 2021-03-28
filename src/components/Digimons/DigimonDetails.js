@@ -1,31 +1,31 @@
 import { useEffect, useState } from "react";
 import { Redirect, useHistory, useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { deletePokemon, fetchPokemonDetails } from "../../data";
-import { fetchStatus } from '../../enums';
 import Loading from "../Loading";
-import { DetailsWrapper } from "./index.styled";
-import Confirm from "../Confirm/Confirm";
+import Confirm from "../Confirm";
+import { deleteDigimon, fetchDigimonDetails } from "../../data";
+import { fetchStatus } from '../../consts/enums';
+import { DetailsWrapper } from "../../index.styled";
 
-const PokemonDetails = () => {
-    const { id: pokemonId } = useParams();
-    const [pokemon, setPokemon] = useState(fetchStatus.LOADING);
+const DigimonDetails = () => {
+    const { id: digimonId } = useParams();
+    const [digimon, setDigimon] = useState(fetchStatus.LOADING);
     const [shouldShowDeletePopup, setShouldShowDeletePopup] = useState(false);
     const history = useHistory();
 
     useEffect(() => {
-        fetchPokemonDetails(pokemonId).then(pokemon => {
-            setPokemon(pokemon || fetchStatus.NOTFOUND);
-            document.title=pokemon.name;
+        fetchDigimonDetails(digimonId).then(digimon => {
+            setDigimon(digimon || fetchStatus.NOTFOUND);
+            document.title=digimon?.name;
         });
     }, []);
 
-    if (pokemon === fetchStatus.LOADING) {
+    if (digimon === fetchStatus.LOADING) {
         document.title="Loading";
         return <Loading />;
     }
 
-    if (pokemon === fetchStatus.NOTFOUND) {
+    if (digimon === fetchStatus.NOTFOUND) {
         return <Redirect to="/404" />
 
     }
@@ -35,19 +35,18 @@ const PokemonDetails = () => {
             return <Confirm
                 text="Do you really want to delete?"
                 accept={async () => {
-                    await deletePokemon(pokemon);
-                    history.push("/pokemons");
-                }
-                }
+                    await deleteDigimon(digimon);
+                    history.push("/digimons");
+                }}
                 cancel={() => setShouldShowDeletePopup(false)}
             />
     }
 
     return (
         <DetailsWrapper>
-            <h2>{pokemon.name}</h2>
-            <p>{pokemon.description}</p>
-            <Link to={"../pokemons/edit/" + pokemon.id}>
+            <h2>{digimon.name}</h2>
+            <p>{digimon.description}</p>
+            <Link to={"../digimons/edit/" + digimon.id}>
                 <button>Edit</button>
             </Link>
             <button className="button-delete" onClick={() => setShouldShowDeletePopup(true)}>Delete</button>
@@ -56,4 +55,4 @@ const PokemonDetails = () => {
     )
 }
 
-export default PokemonDetails;
+export default DigimonDetails;
