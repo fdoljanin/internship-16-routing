@@ -23,7 +23,7 @@ const PokemonForm = ({ onSubmit, pokemon }) => {
         onSubmit(pokemonToSend);
     }
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} type="pokemon">
                 <div className="input-section">
                     <label htmlFor="name">Name</label>
                     <input name="name" value={pokemonState.name}

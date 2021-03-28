@@ -21,7 +21,7 @@ const PokemonList = () => {
     }
 
     return (
-        <List>
+        <List type="pokemon">
             <h2>List of pokemons:</h2>
             <div>
                 {pokemonList.length === 0 ?

@@ -43,7 +43,7 @@ const PokemonDetails = () => {
     }
 
     return (
-        <DetailsWrapper>
+        <DetailsWrapper type="pokemon">
             <h2>{pokemon.name}</h2>
             <p>{pokemon.description}</p>
             <Link to={"../pokemons/edit/" + pokemon.id}>

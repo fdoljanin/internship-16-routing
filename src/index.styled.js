@@ -223,7 +223,7 @@ export const Card = styled.article`
     padding: 20px;
     margin: 25px;
     cursor: pointer;
-    box-shadow: 15px 10px 34px -13px #884488;
+    box-shadow: 15px 10px 34px -13px ${props => props.type === "pokemon" ? 'var(--color-pokemon)':'var(--color-digimon)' };;
 
     h3, span {
         font-weight: 600;
@@ -268,7 +268,7 @@ export const DetailsWrapper = styled.section`
 
     h2{
         font-size: 3rem;
-        color: var(--color-pokemon);
+        color: ${props => props.type === "pokemon" ? 'var(--color-pokemon)':'var(--color-digimon)' };
     }
 
     p {
@@ -280,7 +280,7 @@ export const DetailsWrapper = styled.section`
 
     button {
         margin-top: 10px;
-        background: var(--color-pokemon);
+        background: ${props => props.type === "pokemon" ? 'var(--color-pokemon)':'var(--color-digimon)' };
         width: 120px;
         border: none;
         font-size: 1.2rem;
@@ -312,7 +312,7 @@ export const Form = styled.form`
     button {
         width: 25%;
         min-width: 200px;
-        background: var(--color-pokemon);
+        background: ${props => props.type === "pokemon" ? 'var(--color-pokemon)':'var(--color-digimon)' };
         border: none;
         font-size: 1.3rem;
         color: white;
@@ -324,7 +324,6 @@ export const Form = styled.form`
 
     button:hover {
         transform: scale(1.1);
-        background: #c2c;
     }
 
     .input-section {
@@ -376,7 +375,7 @@ export const List = styled.div`
 
     button {
         margin-top: 100px;
-        background: var(--color-pokemon);
+        background: ${props => props.type === "pokemon" ? 'var(--color-pokemon)':'var(--color-digimon)' };
         border: none;
         font-size: 1.3rem;
         color: white;
@@ -388,7 +387,6 @@ export const List = styled.div`
 
     button:hover {
         transform: scale(1.1);
-        background: #c2c;
     }
 
 `;

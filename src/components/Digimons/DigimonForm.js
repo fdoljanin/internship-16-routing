@@ -23,7 +23,7 @@ const DigimonForm = ({ onSubmit, digimon }) => {
         onSubmit(digimonToSend);
     }
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} type="digimon">
                 <div className="input-section">
                     <label htmlFor="name">Name</label>
                     <input name="name" value={digimonState.name}

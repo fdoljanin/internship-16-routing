@@ -21,7 +21,7 @@ const DigimonList = () => {
     }
 
     return (
-        <List>
+        <List type="digimon">
             <h2>List of digimons:</h2>
             <div>
                 {digimonList.length === 0 ?
