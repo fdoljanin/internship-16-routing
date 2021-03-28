@@ -1,37 +1,58 @@
 import { useEffect, useState } from "react";
-import { Redirect, useParams } from "react-router";
-import {Link} from "react-router-dom";
-import { fetchPokemonDetails } from "../../data";
-import {fetchStatus} from '../../enums';
+import { Redirect, useHistory, useParams } from "react-router";
+import { Link } from "react-router-dom";
+import { deletePokemon, fetchPokemonDetails } from "../../data";
+import { fetchStatus } from '../../enums';
 import Loading from "../Loading";
-import {Pokemon} from "./index.styled";
+import { DetailsWrapper } from "./index.styled";
+import Confirm from "../Confirm/Confirm";
 
 const PokemonDetails = () => {
     const { id: pokemonId } = useParams();
     const [pokemon, setPokemon] = useState(fetchStatus.LOADING);
+    const [shouldShowDeletePopup, setShouldShowDeletePopup] = useState(false);
+    const history = useHistory();
 
     useEffect(() => {
         fetchPokemonDetails(pokemonId).then(pokemon => {
             setPokemon(pokemon || fetchStatus.NOTFOUND);
+            document.title=pokemon.name;
         });
     }, []);
 
     if (pokemon === fetchStatus.LOADING) {
+        document.title="Loading";
         return <Loading />;
     }
 
     if (pokemon === fetchStatus.NOTFOUND) {
         return <Redirect to="/404" />
+
+    }
+
+    const showDeletePopup = () => {
+        if (shouldShowDeletePopup)
+            return <Confirm
+                text="Do you really want to delete?"
+                accept={async () => {
+                    await deletePokemon(pokemon);
+                    history.push("/pokemons");
+                }
+                }
+                cancel={() => setShouldShowDeletePopup(false)}
+            />
     }
 
     return (
-        <Pokemon>
+        <DetailsWrapper>
             <h2>{pokemon.name}</h2>
             <p>{pokemon.description}</p>
-            <Link to={"../pokemons/edit/"+pokemon.id}>
+            <Link to={"../pokemons/edit/" + pokemon.id}>
                 <button>Edit</button>
             </Link>
-        </Pokemon>
+            <button className="button-delete" onClick={() => setShouldShowDeletePopup(true)}>Delete</button>
+            {showDeletePopup()}
+        </DetailsWrapper>
     )
 }
 

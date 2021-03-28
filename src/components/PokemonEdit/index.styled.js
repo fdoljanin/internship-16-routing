@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const EditPokemon = styled.div`
+export const EditWrapper = styled.div`
     width: 60%;
     display: flex;
     margin: auto;

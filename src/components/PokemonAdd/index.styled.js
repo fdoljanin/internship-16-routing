@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AddPokemon = styled.div`
+export const AddWrapper = styled.div`
     width: 60%;
     display: flex;
     margin: auto;

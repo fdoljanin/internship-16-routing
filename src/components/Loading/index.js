@@ -6,12 +6,20 @@ import {LoadScreen} from "./index.styles";
 const Loading = () => {
     const [loadingText, setLoadingText] = useState("Loading");
     const [numberOfDots, setNumberOfDots] = useState(3);
+    let timeout;
 
     const changeLoadingText = () => {
         setNumberOfDots(prev => (prev + 1) % 4);
         setLoadingText("Loading" + ".".repeat(numberOfDots));
     }
-    useEffect(() => setTimeout(changeLoadingText, 500), [numberOfDots]);
+    
+   useEffect(() => {
+       timeout = setTimeout(changeLoadingText, 500);
+   }, [numberOfDots]);
+
+   useEffect(() =>{
+        return clearTimeout(timeout);
+   }, [])
 
     return (
         <LoadScreen>

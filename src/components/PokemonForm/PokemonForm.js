@@ -24,13 +24,13 @@ const PokemonForm = ({ onSubmit, pokemon }) => {
     }
     return (
         <Form onSubmit={handleSubmit}>
-                <div class="input-section">
-                    <label for="name">Name</label>
+                <div className="input-section">
+                    <label htmlFor="name">Name</label>
                     <input name="name" value={pokemonState.name}
                      placeholder="Pokemon name" onChange={handleChange} required/>
                 </div>
-                <div class="input-section">
-                    <label for="description">Description</label>
+                <div className="input-section">
+                    <label htmlFor="description">Description</label>
                     <textarea name="description" value={pokemonState.description}
                      placeholder="Pokemon description" onChange={handleChange}
                      rows="3" required/>

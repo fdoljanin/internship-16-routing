@@ -4,7 +4,7 @@ import { updatePokemon, fetchPokemonDetails } from "../../data";
 import { fetchStatus } from '../../enums';
 import Loading from "../Loading";
 import PokemonForm from "./../PokemonForm/PokemonForm";
-import {EditPokemon} from "./index.styled";
+import { EditWrapper } from "./index.styled";
 
 const PokemonEdit = () => {
     const { id: pokemonId } = useParams();
@@ -14,10 +14,12 @@ const PokemonEdit = () => {
     useEffect(() => {
         fetchPokemonDetails(pokemonId).then(pokemon => {
             setPokemon(pokemon || fetchStatus.NOTFOUND);
+            document.title = "Edit " + pokemon.name;
         });
     }, []);
 
     if (pokemon === fetchStatus.LOADING) {
+        document.title = "Loading...";
         return <Loading />;
     }
 
@@ -31,10 +33,10 @@ const PokemonEdit = () => {
     }
 
     return (
-        <EditPokemon>
+        <EditWrapper>
             <h2>Edit pokemon</h2>
             <PokemonForm pokemon={pokemon} onSubmit={(pokemon) => handleSubmit(pokemon)} />
-        </EditPokemon>
+        </EditWrapper>
     )
 }
 

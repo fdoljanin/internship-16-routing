@@ -6,7 +6,6 @@ import PokemonEdit from "./PokemonEdit/PokemonEdit";
 import PokemonList from "./PokemonList/PokemonList";
 
 const PokemonRouter = () => {
-    console.log("PokeRoute");
     return (
             <Switch>
                 <Route exact path="/pokemons">
