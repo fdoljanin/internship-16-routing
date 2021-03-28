@@ -1,12 +1,6 @@
 {
   "pokemons": [],
-  "digimons": [
-    {
-      "id": 1,
-      "name": "Digimonj",
-      "description": "rrr"
-    }
-  ],
+  "digimons": [],
   "posts": [
     {
       "id": 1,
