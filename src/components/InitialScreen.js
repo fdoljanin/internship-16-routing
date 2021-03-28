@@ -1,6 +1,6 @@
 import pikachu from "./../assets/pikachu.svg";
 import gatomon from "./../assets/gatomon.png";
-import {MainScreen} from "../index.styled";
+import { MainScreen } from "../index.styled";
 import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
 import NotFound from "./NotFound";
 
@@ -18,8 +18,8 @@ const InitialScreen = () => {
             </section>
             <section className="digimon">
                 <Link to="/digimons">
-                <button>
-                    Digimons
+                    <button>
+                        Digimons
                 </button>
                 </Link>
                 <img src={gatomon} alt="Gatomon image" />

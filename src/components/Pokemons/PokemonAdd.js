@@ -1,7 +1,7 @@
 import { useHistory } from "react-router";
 import PokemonForm from "./PokemonForm";
 import { createPokemon } from "../../data";
-import {FormWrapper} from "../../index.styled";
+import { FormWrapper } from "../../index.styled";
 
 const PokemonAdd = () => {
     const history = useHistory();

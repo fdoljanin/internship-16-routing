@@ -1,7 +1,7 @@
 import { useHistory } from "react-router";
 import DigimonForm from "./DigimonForm";
 import { createDigimon } from "../../data";
-import {FormWrapper} from "../../index.styled";
+import { FormWrapper } from "../../index.styled";
 
 const DigimonAdd = () => {
     const history = useHistory();

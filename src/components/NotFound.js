@@ -1,10 +1,10 @@
 import pikachu404 from "../assets/404-pikachu.png";
-import {NotFoundWrapper} from "../index.styled";
-import {Link} from "react-router-dom";
+import { NotFoundWrapper } from "../index.styled";
+import { Link } from "react-router-dom";
 
 const NotFound = () => {
-    document.title="404";
-    
+    document.title = "404";
+
     return (
         <NotFoundWrapper>
             <h1>404</h1>

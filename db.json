@@ -1,11 +1,5 @@
 {
-  "pokemons": [
-    {
-      "id": 1,
-      "name": "fr",
-      "description": "dr"
-    }
-  ],
+  "pokemons": [],
   "digimons": [
     {
       "id": 1,

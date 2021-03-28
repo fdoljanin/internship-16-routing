@@ -16,12 +16,12 @@ const PokemonDetails = () => {
     useEffect(() => {
         fetchPokemonDetails(pokemonId).then(pokemon => {
             setPokemon(pokemon || fetchStatus.NOTFOUND);
-            document.title=pokemon?.name;
+            document.title = pokemon?.name;
         });
     }, []);
 
     if (pokemon === fetchStatus.LOADING) {
-        document.title="Loading";
+        document.title = "Loading";
         return <Loading />;
     }
 

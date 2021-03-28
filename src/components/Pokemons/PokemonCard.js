@@ -1,11 +1,11 @@
-import {Card} from "../../index.styled";
+import { Card } from "../../index.styled";
 
-const PokemonCard = ({pokemon}) => {
+const PokemonCard = ({ pokemon }) => {
     return (
-       <Card type="pokemon">
-            <span>{"#"+pokemon.id}</span>
+        <Card type="pokemon">
+            <span>{"#" + pokemon.id}</span>
             <h3>{pokemon.name}</h3>
-       </Card>
+        </Card>
     )
 }
 

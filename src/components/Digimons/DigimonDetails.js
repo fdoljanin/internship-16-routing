@@ -16,12 +16,12 @@ const DigimonDetails = () => {
     useEffect(() => {
         fetchDigimonDetails(digimonId).then(digimon => {
             setDigimon(digimon || fetchStatus.NOTFOUND);
-            document.title=digimon?.name;
+            document.title = digimon?.name;
         });
     }, []);
 
     if (digimon === fetchStatus.LOADING) {
-        document.title="Loading";
+        document.title = "Loading";
         return <Loading />;
     }
 

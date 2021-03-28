@@ -25,7 +25,7 @@ const DigimonList = () => {
             <h2>List of digimons:</h2>
             <div>
                 {digimonList.length === 0 ?
-                    <p>No digimons to show.</p> 
+                    <p>No digimons to show.</p>
                     :
                     <section>
                         {digimonList.map(digimon =>

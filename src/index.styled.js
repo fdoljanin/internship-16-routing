@@ -33,15 +33,23 @@ export const ConfirmPopup = styled.div`
     .button-cancel {
         background: grey;
     }
+
+    @media screen and (max-width: 768px) {
+        h4 {
+            width: 60vw;
+            margin-bottom: 20px;
+        }
+    }
 `;
 
 export const MainScreen = styled.main`
   position: relative;
   display: flex;
-  
+  height: 100vh;
+
   section {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,6 +122,15 @@ export const MainScreen = styled.main`
   
   .digimon img {
       margin-top: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+      img {
+          width: 180px;
+        }
+      h1 {
+          font-size: 2rem;
+      }  
   }
 `;
 
@@ -223,7 +240,7 @@ export const Card = styled.article`
     padding: 20px;
     margin: 25px;
     cursor: pointer;
-    box-shadow: 15px 10px 34px -13px ${props => props.type === "pokemon" ? 'var(--color-pokemon)':'var(--color-digimon)' };;
+    box-shadow: 15px 10px 34px -13px ${props => props.type === "pokemon" ? 'var(--color-pokemon)' : 'var(--color-digimon)'};;
 
     h3, span {
         font-weight: 600;
@@ -253,6 +270,13 @@ export const Card = styled.article`
             transform: translateY(0);
         }
     }
+
+    @media screen and (max-width: 768px) {
+        h3, span {
+            font-size: 1.1rem;
+        }
+        padding: 10px;
+    }
 `;
 
 export const DetailsWrapper = styled.section`
@@ -268,7 +292,7 @@ export const DetailsWrapper = styled.section`
 
     h2{
         font-size: 3rem;
-        color: ${props => props.type === "pokemon" ? 'var(--color-pokemon)':'var(--color-digimon)' };
+        color: ${props => props.type === "pokemon" ? 'var(--color-pokemon)' : 'var(--color-digimon)'};
     }
 
     p {
@@ -280,7 +304,7 @@ export const DetailsWrapper = styled.section`
 
     button {
         margin-top: 10px;
-        background: ${props => props.type === "pokemon" ? 'var(--color-pokemon)':'var(--color-digimon)' };
+        background: ${props => props.type === "pokemon" ? 'var(--color-pokemon)' : 'var(--color-digimon)'};
         width: 120px;
         border: none;
         font-size: 1.2rem;
@@ -293,6 +317,13 @@ export const DetailsWrapper = styled.section`
 
     .button-delete {
         background: #911;
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 90%;
+        button {
+            width: 100px;
+        }
     }
 `;
 
@@ -312,7 +343,7 @@ export const Form = styled.form`
     button {
         width: 25%;
         min-width: 200px;
-        background: ${props => props.type === "pokemon" ? 'var(--color-pokemon)':'var(--color-digimon)' };
+        background: ${props => props.type === "pokemon" ? 'var(--color-pokemon)' : 'var(--color-digimon)'};
         border: none;
         font-size: 1.3rem;
         color: white;
@@ -375,7 +406,7 @@ export const List = styled.div`
 
     button {
         margin-top: 100px;
-        background: ${props => props.type === "pokemon" ? 'var(--color-pokemon)':'var(--color-digimon)' };
+        background: ${props => props.type === "pokemon" ? 'var(--color-pokemon)' : 'var(--color-digimon)'};
         border: none;
         font-size: 1.3rem;
         color: white;
@@ -389,4 +420,20 @@ export const List = styled.div`
         transform: scale(1.1);
     }
 
+    @media screen and (max-width: 768px){
+        div {
+            flex-direction: column-reverse;
+            align-items: center;
+            width: 340px;
+        }        
+        section {
+            width: 340px;
+        }
+        button {
+            margin: 0;
+            font-size: 1rem;
+            border-radius: 50px;
+            height: 40px;
+        }
+    }
 `;

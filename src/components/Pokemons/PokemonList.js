@@ -25,7 +25,7 @@ const PokemonList = () => {
             <h2>List of pokemons:</h2>
             <div>
                 {pokemonList.length === 0 ?
-                    <p>No pokemons to show.</p> 
+                    <p>No pokemons to show.</p>
                     :
                     <section>
                         {pokemonList.map(pokemon =>
