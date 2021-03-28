@@ -1,9 +1,7 @@
 import pikachu from "./../assets/pikachu.svg";
 import gatomon from "./../assets/gatomon.png";
 import { MainScreen } from "../index.styled";
-import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
-import NotFound from "./NotFound";
-
+import { Link} from "react-router-dom";
 const InitialScreen = () => {
     return (
         <MainScreen>
