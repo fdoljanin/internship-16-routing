@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router";
-import { updatePokemon, fetchPokemonDetails } from "../data";
-import { fetchStatus } from '../enums';
-import PokemonForm from "./PokemonForm";
+import { useParams, useHistory, Redirect } from "react-router";
+import { updatePokemon, fetchPokemonDetails } from "../../data";
+import { fetchStatus } from '../../enums';
+import Loading from "../Loading";
+import PokemonForm from "./../PokemonForm/PokemonForm";
+import {EditPokemon} from "./index.styled";
 
 const PokemonEdit = () => {
     const { id: pokemonId } = useParams();
@@ -16,7 +18,7 @@ const PokemonEdit = () => {
     }, []);
 
     if (pokemon === fetchStatus.LOADING) {
-        return null;
+        return <Loading />;
     }
 
     if (pokemon === fetchStatus.NOTFOUND) {
@@ -29,10 +31,10 @@ const PokemonEdit = () => {
     }
 
     return (
-        <section>
+        <EditPokemon>
             <h2>Edit pokemon</h2>
             <PokemonForm pokemon={pokemon} onSubmit={(pokemon) => handleSubmit(pokemon)} />
-        </section>
+        </EditPokemon>
     )
 }
 

@@ -1,9 +1,11 @@
+import {Card} from "./index.styled";
+
 const PokemonCard = ({pokemon}) => {
     return (
-       <article>
-            <span>{pokemon.id}</span>
+       <Card>
+            <span>{"#"+pokemon.id}</span>
             <h3>{pokemon.name}</h3>
-       </article>
+       </Card>
     )
 }
 

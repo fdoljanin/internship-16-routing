@@ -1,35 +1,24 @@
-import React from "react";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import NotFound from "./components/NotFound/NotFound";
 import InitialScreen from "./components/InitialScreen";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import NotFound from "./components/NotFound";
-import PokemonAdd from "./components/PokemonAdd";
-import PokemonDetails from './components/PokemonDetails';
-import PokemonEdit from "./components/PokemonEdit";
-import PokemonList from "./components/PokemonList";
+import PokemonRouter from "./components/PokemonRouter";
 
 const App = () => {
     return (
-        /*<BrowserRouter>
+        <BrowserRouter>
             <Switch>
-                <Route exact path="/pokemons">
-                    <PokemonList />
-                </Route>
-                <Route exact path="/pokemons/add">
-                    <PokemonAdd />
-                </Route>
-                <Route exact path="/pokemons/edit/:id">
-                    <PokemonEdit />
-                </Route>
-                <Route exact path="/pokemons/:id">
-                    <PokemonDetails />
-                </Route>
                 <Route path="/404">
-                    <NotFound/>
+                    <NotFound />
                 </Route>
-            
+                <Route exact path="/">
+                    <InitialScreen />
+                </Route>
+                <Route path="/pokemons">
+                    <PokemonRouter />
+                </Route>
+                <Redirect to="/" />
             </Switch>
-        </BrowserRouter>*/
-        <InitialScreen />
+        </BrowserRouter>
     )
 }
 

@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Redirect, useParams } from "react-router";
 import {Link} from "react-router-dom";
-import { fetchPokemonDetails } from "../data";
-import {fetchStatus} from '../enums';
+import { fetchPokemonDetails } from "../../data";
+import {fetchStatus} from '../../enums';
+import Loading from "../Loading";
+import {Pokemon} from "./index.styled";
 
 const PokemonDetails = () => {
     const { id: pokemonId } = useParams();
@@ -15,7 +17,7 @@ const PokemonDetails = () => {
     }, []);
 
     if (pokemon === fetchStatus.LOADING) {
-        return null;
+        return <Loading />;
     }
 
     if (pokemon === fetchStatus.NOTFOUND) {
@@ -23,13 +25,13 @@ const PokemonDetails = () => {
     }
 
     return (
-        <section>
+        <Pokemon>
             <h2>{pokemon.name}</h2>
             <p>{pokemon.description}</p>
             <Link to={"../pokemons/edit/"+pokemon.id}>
                 <button>Edit</button>
             </Link>
-        </section>
+        </Pokemon>
     )
 }
 
