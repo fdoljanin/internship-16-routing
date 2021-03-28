@@ -1,4 +1,5 @@
 import React from "react";
+import InitialScreen from "./components/InitialScreen";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import PokemonAdd from "./components/PokemonAdd";
@@ -8,7 +9,7 @@ import PokemonList from "./components/PokemonList";
 
 const App = () => {
     return (
-        <BrowserRouter>
+        /*<BrowserRouter>
             <Switch>
                 <Route exact path="/pokemons">
                     <PokemonList />
@@ -27,7 +28,8 @@ const App = () => {
                 </Route>
             
             </Switch>
-        </BrowserRouter>
+        </BrowserRouter>*/
+        <InitialScreen />
     )
 }
 
